@@ -1,1 +1,12 @@
-<div>index page</div>
+<h2>All jokes</h2>
+
+<br>
+<br>
+<% @jokes.each do |joke| %>
+
+    <div>Name : <%= joke.name %></div>
+    <div>Content : <%= joke.content %></div>
+    <div>Published by : <%= joke.author %></div>
+    <div><%= link_to "See the joke", joke_path(joke) %></div>
+    <hr>
+<% end %>
