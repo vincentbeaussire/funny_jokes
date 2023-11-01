@@ -9,5 +9,6 @@
     <div>Content : <%= joke.content %></div>
     <div>Published by : <%= joke.author %></div>
     <div><%= link_to "See the joke", joke_path(joke) %></div>
+    <div><%= link_to "Edit joke", edit_joke_path(joke) %></div>
     <hr>
 <% end %>
