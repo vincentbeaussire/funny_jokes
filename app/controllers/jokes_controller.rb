@@ -13,9 +13,21 @@ class JokesController < ApplicationController
     @joke = Joke.new
   end
 
+  def edit
+    @joke = Joke.find(params[:id])
+  end
+
   def create
-    Joke.create(jokes_params)
-    redirect_to jokes_path
+    @joke = Joke.new(jokes_params)
+
+    if @joke.save
+      redirect_to jokes_path
+    else
+      render :new
+    end
+  end
+
+  def update
   end
 
   private
