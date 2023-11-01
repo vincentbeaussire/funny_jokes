@@ -27,7 +27,19 @@ class JokesController < ApplicationController
     end
   end
 
+  def destroy
+    @joke = Joke.find(params[:id])
+    @joke.destroy
+    redirect_to jokes_path
+  end
+
   def update
+    @joke = Joke.find(params[:id])
+    if @joke.update(jokes_params)
+        redirect_to jokes_path
+    else
+      render :edit
+    end
   end
 
   private
